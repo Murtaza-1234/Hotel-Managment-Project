@@ -1,0 +1,212 @@
+{
+    "applicationConfig": {
+        "hotelName": "Grand Horizon Hotel",
+        "currency": "INR",
+        "maxBookingDays": 30,
+        "enableLogging": true,
+        "logFile": "hotel_logs.txt",
+        "dateFormat": "DD-MM-YYYY"
+    },
+    "securityConfig": {
+        "roles": {
+            "admin": {
+                "Password": "Admin@123",
+                "permissions": [
+                    "add_room",
+                    "update_room",
+                    "delete_room",
+                    "add_guest",
+                    "create_booking",
+                    "cancel_booking",
+                    "view_logs"
+                ]
+            },
+            "staff": {
+                "permissions": [
+                    "add_guest",
+                    "create_booking",
+                    "cancel_booking",
+                    "view_rooms"
+                ]
+            },
+            "guest": {
+                "permissions": [
+                    "view_rooms",
+                    "view_own_booking",
+                    "Book_room"
+                ]
+            }
+        }
+    },
+    "validationRules": {
+        "guestName": "^[A-Za-z ]{3,50}$",
+        "email": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+        "phone": "^[6-9][0-9]{9}$",
+        "roomNumber": "^[0-9]{3}$",
+        "date": "^\\d{2}-\\d{2}-\\d{4}$"
+    },
+    "rooms": [
+        {
+            "roomNumber": "101",
+            "type": "Single",
+            "pricePerNight": 2500,
+            "status": "occupied"
+        },
+        {
+            "roomNumber": "202",
+            "type": "Double",
+            "pricePerNight": 4000,
+            "status": "occupied"
+        },
+        {
+            "roomNumber": "303",
+            "type": "Suite",
+            "pricePerNight": 8000,
+            "status": "occupied"
+        },
+        {
+            "roomNumber": "404",
+            "type": "Delux",
+            "pricePerNight": 5000,
+            "status": "available"
+        },
+        {
+            "roomNumber": "505",
+            "type": "single",
+            "pricePerNight": 2500,
+            "status": "available"
+        },
+        {
+            "roomNumber": "606",
+            "type": "Single",
+            "pricePerNight": 2500,
+            "status": "available"
+        }
+    ],
+    "staffs": [
+        {
+            "staffId": "S001",
+            "Password": "Amit@123",
+            "name": "Amit Kumar",
+            "email": "amit.kumar@gmail.com",
+            "phone": "9876543210",
+            "role": "staff"
+        },
+        {
+            "staffId": "S002",
+            "Password": "Neha@123",
+            "name": "Neha Singh",
+            "email": "neha.singh@gmail.com",
+            "phone": "9876543210",
+            "role": "staff"
+        }
+    ],
+    "guests": [
+        {
+            "guestId": "G001",
+            "name": "Rahul Sharma",
+            "email": "rahul.sharma@gmail.com",
+            "phone": "9876543210",
+            "role": "guest"
+        },
+        {
+            "guestId": "G002",
+            "name": "Anita Verma",
+            "email": "anita.verma@gmail.com",
+            "phone": "9123456789",
+            "role": "guest"
+        },
+        {
+            "guestId": "G003",
+            "name": "Rahul Yadav",
+            "email": "Rahul12@gmail.com",
+            "phone": "5678934256",
+            "role": "guest"
+        }
+    ],
+    "bookings": [
+        {
+            "bookingId": "B001",
+            "guestId": "G001",
+            "roomNumber": "202",
+            "checkInDate": "05-01-2026",
+            "checkOutDate": "08-01-2026",
+            "totalAmount": 12000,
+            "status": "confirmed"
+        },
+        {
+            "bookingId": "B002",
+            "guestId": "G002",
+            "roomNumber": "303",
+            "checkInDate": "10-01-2026",
+            "checkOutDate": "15-01-2026",
+            "totalAmount": 40000,
+            "status": "confirmed"
+        }
+    ],
+    "activityLogs": [
+        {
+            "logId": "L001",
+            "timestamp": "01-01-2026 10:15:30",
+            "userRole": "admin",
+            "action": "Room added",
+            "status": "success"
+        },
+        {
+            "logId": "L002",
+            "timestamp": "02-01-2026 14:40:10",
+            "userRole": "staff",
+            "action": "Booking created",
+            "status": "success"
+        },
+        {
+            "logId": "L003",
+            "timestamp": "02-01-2026 15:05:55",
+            "userRole": "guest",
+            "action": "Invalid Guest_id attempt to view own booking",
+            "status": "denied"
+        },
+        {
+            "logId": "L004",
+            "timestamp": "2026-01-04 19:59:53",
+            "userRole": "admin",
+            "action": "Add Room 606",
+            "status": "successful"
+        },
+        {
+            "logId": "L005",
+            "timestamp": "2026-01-04 20:19:11",
+            "userRole": "admin",
+            "action": "Cancel Booking B003",
+            "status": "successful"
+        },
+        {
+            "logId": "L006",
+            "timestamp": "2026-01-04 20:19:11",
+            "userRole": "admin",
+            "action": "Cancel Booking B003",
+            "status": "successful"
+        },
+        {
+            "logId": "L007",
+            "timestamp": "2026-01-04 20:36:08",
+            "userRole": "guest",
+            "action": "View Rooms",
+            "status": "successful"
+        },
+        {
+            "logId": "L008",
+            "timestamp": "2026-01-04 20:37:31",
+            "userRole": "guest",
+            "action": "Book Room 505 with Booking ID B003",
+            "status": "successful"
+        },
+        {
+            "logId": "L009",
+            "timestamp": "2026-01-04 20:43:18",
+            "userRole": "admin",
+            "action": "Cancel Booking B003",
+            "status": "successful"
+        }
+    ]
+}
